@@ -46,6 +46,21 @@ class Board(object):
             self._far = 1.0*board._left
             self._left = -1.0*board._far
             self._front = 1.0*board._front
+        elif relationship == 'end-to-near-left-edge':
+            self.origin = board.origin + board._left*board.width + board._far*self.width
+            self._far = 1.0*board._left
+            self._left = -1.0*board._far
+            self._front = 1.0*board._front
+        elif relationship == 'end-to-far-right-edge':
+            self.origin = board.origin + board._far*board.length
+            self._far = -board._left
+            self._left = -1.0*board._far
+            self._front = 1.0*board._front
+        elif relationship == 'end-to-near-right-edge':
+            self.origin = board.origin + board._far*self.width
+            self._far = -board._left
+            self._left = -1.0*board._far
+            self._front = 1.0*board._front
         elif relationship == 'left-edge-to-far-end':
             self.origin = board.origin + board._left*board.width
             self._far = 1.0*board._left
